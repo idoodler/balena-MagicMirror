@@ -1,0 +1,13 @@
+version: '2'
+services:
+  Browser:
+    restart: always
+    build: ./balena-wpe
+    privileged: true
+    depends_on:
+      - MagicMirror
+  MagicMirror:
+    restart: always
+    build: ./MagicMirror
+    ports:
+      - 8080:8080
