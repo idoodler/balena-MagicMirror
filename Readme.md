@@ -15,3 +15,4 @@ Modules must be placed in the `MagicMirror/modules`. You can use git submodules 
 ## Upload to your project
 + Install the `balena` CLI tools and push to your project
     + `balena push MY_PROJECT`
++ Add the enviromental variable `WPE_URL` with the IP and port of your MagicMirror project to display the interface on the `balena-wpe` browser.
