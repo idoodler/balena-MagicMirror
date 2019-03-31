@@ -18,5 +18,5 @@ Modules must be placed in the `MagicMirror/modules`. You can use git submodules 
 + Add the enviromental variable `WPE_URL` with the IP and port of your MagicMirror project to display the interface on the `balena-wpe` browser.
 
 ## Known issues
-[-] Unstable MagicMirror service (restarting every now and then)
-[-] browser starting before the MagicMirror service has been starting resulting in a white screen 
+- [ ] Unstable MagicMirror service (restarting every now and then)
+- [ ] browser starting before the MagicMirror service has been starting resulting in a white screen 
