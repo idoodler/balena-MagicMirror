@@ -36,7 +36,7 @@ In Balena Cloud add an enviroment variable named **`TZ`**, as a value add your t
 ## Rotating Display
 Add **`RESIN_HOST_CONFIG_display_rotate`** as a custom configuration variable, note the values below.
 
-| Descroption  | Value
+| Description  | Value
 |--------------|----------
 |**`Normal`**  | **`0`**
 |**`90°`**     | **`1`**
