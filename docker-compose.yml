@@ -1,12 +1,17 @@
-version: '2'
+version: '2.1'
 services:
   Browser:
     restart: always
     build: ./balena-wpe
     privileged: true
+    environment:
+      INITSYSTE: "on"
+      WPE_URL: "http://mm:8080"
+    healthcheck:
+      test: "wget -O /dev/null http://mm:8080; if [ 0 != $? ]; then exit 1; fi;"
     depends_on:
-      - MagicMirror
-  MagicMirror:
+      - mm
+  mm: # Don't use a name with upper case letters, the browser can't resolve the hostname
     restart: always
     build: ./MagicMirror
     ports:
