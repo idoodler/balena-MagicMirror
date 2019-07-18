@@ -26,8 +26,9 @@ You need to set the GPU memory to something suitable for hardware accelerated gr
 Modules must be placed in **`MagicMirror/modules`**. You can use git submodules or just copy the module into this directory. 
 
 # Upload to your project
-+ Install the [**`balena`** CLI tools](https://github.com/balena-io/balena-cli) and push to your project
-    + **`balena push MY_PROJECT`**
++ Install the [**`balena`** CLI tools](https://github.com/balena-io/balena-cli) and push to your project by executing **`balena push MY_PROJECT`**
++ You should see a unicorn if everything is finished
++ In your [balena cloud dashboard](https://dashboard.balena-cloud.com) you should see your device (or fleet) to update and fetch the just pushed changes
 
 # Additional Configuration
 ## Timezone
