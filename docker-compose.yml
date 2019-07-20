@@ -3,16 +3,17 @@ services:
   Browser:
     restart: always
     build: ./balena-wpe
+    network_mode: host
     privileged: true
     environment:
       INITSYSTE: "on"
-      WPE_URL: "http://mm:8080"
+      WPE_URL: "http://localhost:8080"
     healthcheck:
-      test: "wget -O /dev/null http://mm:8080; if [ 0 != $? ]; then exit 1; fi;"
+      test: "wget -O /dev/null http://localhost:8080; if [ 0 != $? ]; then exit 1; fi;"
     depends_on:
       - mm
   mm: # Don't use a name with upper case letters, the browser can't resolve the hostname
     restart: always
     build: ./MagicMirror
-    ports:
-      - 8080:8080
+    privileged: true
+    network_mode: host
