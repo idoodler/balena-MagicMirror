@@ -1,18 +1,28 @@
 version: '2.1'
 services:
+  # https://github.com/balena-io-projects/balena-wpe
   Browser:
     restart: always
     build: ./balena-wpe
-    network_mode: host
     privileged: true
+    network_mode: host
     environment:
-      INITSYSTE: "on"
-      WPE_URL: "http://localhost:8080"
-    healthcheck:
-      test: "wget -O /dev/null http://localhost:8080; if [ 0 != $? ]; then exit 1; fi;"
+      INITSYSTE: on
+      WPE_URL: http://localhost:90
     depends_on:
       - mm
-  mm: # Don't use a name with upper case letters, the browser can't resolve the hostname
+    command: >
+      /bin/bash -c "
+        while ! wget -O /dev/null $WPE_URL > /dev/null;
+        do
+          echo 'Waiting for MagicMirror to be ready...';
+          sleep 10;
+          exit 1;
+        done;
+        echo 'MagicMirror up, starting the Browser now!';
+        /wpe-init
+      "
+  mm:
     restart: always
     build: ./MagicMirror
     privileged: true

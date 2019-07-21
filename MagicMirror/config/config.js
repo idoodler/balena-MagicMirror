@@ -14,7 +14,7 @@ var config = {
                           // - another specific IPv4/6 to listen on a specific interface
                           // - "", "0.0.0.0", "::" to listen on any interface
                           // Default, when address config is left out, is "localhost"
-    port: 8080,
+    port: 90,             // Port 8080 is already used by the "Browser" service
     ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1"], // Set [] to allow all IP addresses
                                                            // or add a specific IPv4 of 192.168.1.5 :
                                                            // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
@@ -27,7 +27,7 @@ var config = {
 
     modules: [
         {
-            module: "alert",
+            module: "alert"
         },
         {
             module: "updatenotification",
@@ -87,9 +87,8 @@ var config = {
                 broadcastNewsFeeds: true,
                 broadcastNewsUpdates: true
             }
-        },
+        }
     ]
-
 };
 
 /*************** DO NOT EDIT THE LINE BELOW ***************/
