@@ -3,6 +3,7 @@ This projects combines the [MagicMirror²](https://github.com/MichMich/MagicMirr
 
 # Requirements
 + Free Balena Cloud Account (Depending on how many devices you want to manage)
++ Raspberry Pi (Not the Zero)
 
 # How to setup
 + Clone this repository to your local PC
