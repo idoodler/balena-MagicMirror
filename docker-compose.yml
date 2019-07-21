@@ -10,7 +10,7 @@ services:
       INITSYSTE: on
       WPE_URL: http://localhost:90
     depends_on:
-      - mm
+      - MagicMirror
     command: >
       /bin/bash -c "
         while ! wget -O /dev/null $WPE_URL > /dev/null;
@@ -22,7 +22,7 @@ services:
         echo 'MagicMirror up, starting the Browser now!';
         /wpe-init
       "
-  mm:
+  MagicMirror:
     restart: always
     build: ./MagicMirror
     privileged: true
