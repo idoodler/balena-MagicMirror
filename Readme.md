@@ -32,8 +32,8 @@ Modules must be placed in **`MagicMirror/modules`**. You can use git submodules 
 
 # Additional Configuration
 ## Timezone
-In Balena Cloud add an enviroment variable named **`TZ`**, as a value add your timezone according to [this documentation](https://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html#TZ-Variable)
-> The enviromental variable can either be added to the whole fleet, or just to an individual device
+In Balena Cloud add an environment variable named **`TZ`**, as a value add your timezone according to [this documentation](https://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html#TZ-Variable)
+> The environmental variable can either be added to the whole fleet, or just to an individual device
 ## Rotating Display
 Add **`RESIN_HOST_CONFIG_display_rotate`** as a custom configuration variable, note the values below.
 
@@ -44,7 +44,18 @@ Add **`RESIN_HOST_CONFIG_display_rotate`** as a custom configuration variable, n
 |**`180°`**    | **`2`**
 |**`270°`**    | **`3`**
 
+# Things you should know
+## MagicMirror² Network Port
+You can't use the port **`8080`**, it is already used by the "Browser" service. 
+The default port has been changed to **`90`** instead.
+
 # Known issues
 + [x] Unstable MagicMirror service (restarting every now and then)
-+ [ ] Browser starting before the MagicMirror service has been started resulting in a white screen on rare occasions
++ [x] Browser starting before the MagicMirror service has been started resulting in a white screen on rare occasions
   + **Workaround:** Just restart the **`Browser`** service when this happens
+  
+ 
+ # Credits
+ + **Original MagicMirror Project: https://github.com/MichMich/MagicMirror**
+ + **MagicMirror Docker Port: https://github.com/bastilimbach/docker-MagicMirror**
+ + **balena-wpe: https://github.com/balena-io-projects/balena-wpe**
