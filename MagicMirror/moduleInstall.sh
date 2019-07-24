@@ -8,7 +8,7 @@ do
     then
         # Yes, it contains this file -> execute "npm i"
         cd ${file}
-        npm i
-        cd ../..
+        npm install --unsafe-perm
+        cd  ../..
     fi
 done
