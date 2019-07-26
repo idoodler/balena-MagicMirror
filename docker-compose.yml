@@ -10,8 +10,20 @@ services:
       WPE_URL: http://localhost:90
     depends_on:
       - MagicMirror
-    healthcheck:
-      test: ["CMD", "wget", "-q", "-O", "/dev/null", "$WPE_URL"]
+    # Don't use healthcheck, it won't work for some reason: https://github.com/balena-io-projects/balena-wpe/issues/51
+    command: >
+      /bin/bash -c "
+        while ! wget -O /dev/null $WPE_URL > /dev/null;
+        do
+          echo 'Waiting for MagicMirror to be ready...';
+          sleep 10;
+          exit 1;
+        done;
+        echo 'MagicMirror up, starting the Browser now!';
+        /wpe-init
+      "
+    #healthcheck:
+    #  test: ["CMD", "wget", "-q", "-O", "/dev/null", "$WPE_URL"]
   MagicMirror:
     restart: always
     build: ./MagicMirror
